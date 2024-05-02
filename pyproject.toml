@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "full-stack-template"
+version = "0.1.0"
+description = ""
+authors = ["zhiwen.wang <zhiwen.wang@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.7.2"
+pydantic = "^2.7.1"
+pydantic-settings = "^2.2.1"
+rich = "^13.7.1"
+sqlalchemy = "^2.0.29"
+redis = "^5.0.4"
+fastapi = "^0.110.3"
+gunicorn = "^22.0.0"
+uvicorn = "^0.29.0"
+alembic = "^1.13.1"
+celery = "^5.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+extend-ignore = [
+    "F401", # imported but unused (pyflakes),
+    "E501", # line too long (pycodestyle),
+]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001",
+]
+
+[tool.ruff.lint.isort]
+length-sort = true
+combine-as-imports = true
+detect-same-package = true

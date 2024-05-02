@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend_app/DockerFile
+    env_file:
+      - .env
+    environment:
+      - HOST=0.0.0.0
+    command: "bash ./entrypoints/backend.sh"
+    network_mode: "host"
+
+  worker:
+    build:
+      context: .
+      dockerfile: backend_app/DockerFile
+    env_file:
+      - .env
+    command: "bash ./entrypoints/backend_worker.sh"
+    network_mode: "host"
