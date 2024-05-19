@@ -73,5 +73,6 @@ def create_download_workflow():
         flow = download_file.apply_async(
             args=[download_task],
             link_error=set_download_failed_status.s(download_task),
+            link=set_download_success_status.s(download_task),
         )
         logger.info(f"Submitted download task {flow.id} for {download_task.db_id}")
