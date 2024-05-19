@@ -13,4 +13,5 @@ celery_worker_max_tasks_per_child = settings.celery.worker_max_tasks_per_child
 
 include = [
     "backend_app.tasks.user",
+    "backend_app.tasks.x_downloader.downloader"
 ]
